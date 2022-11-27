@@ -15,7 +15,11 @@ docker run \
   --restart always \
   --name $SERVICE_NAME \
   --network core-network \
+  --expose 8000 \
+  --env HTTP_PORT=8000 \
   --env API_BEARER_TOKEN=$API_BEARER_TOKEN \
   --env METRICS_BEARER_TOKEN=$METRICS_BEARER_TOKEN \
-  --env HTTP_PORT=8000 \
+  --env VIRTUAL_HOST=eapi.adamkdean.co.uk \
+  --env LETSENCRYPT_HOST=eapi.adamkdean.co.uk \
+  --env LETSENCRYPT_EMAIL="adamkdean@googlemail.com" \
   $SERVICE_NAME
