@@ -19,7 +19,7 @@ docker run \
   --env HTTP_PORT=8000 \
   --env API_BEARER_TOKEN=$API_BEARER_TOKEN \
   --env METRICS_BEARER_TOKEN=$METRICS_BEARER_TOKEN \
-  --env VIRTUAL_HOST=eapi.adamkdean.co.uk \
-  --env LETSENCRYPT_HOST=eapi.adamkdean.co.uk \
+  --env VIRTUAL_HOST=$DOMAIN \
+  --env LETSENCRYPT_HOST=$DOMAIN \
   --env LETSENCRYPT_EMAIL="adamkdean@googlemail.com" \
   $SERVICE_NAME
