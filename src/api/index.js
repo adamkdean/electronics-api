@@ -17,6 +17,7 @@ export class API {
 
   configure() {
     this.app.disable('x-powered-by')
+    this.app.use(Express.json())
     this.app.use(this.parseBearerToken.bind(this))
     this.app.get('/', this.getIndex.bind(this))
     this.app.get('/metrics', this.getMetrics.bind(this))
