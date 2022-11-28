@@ -57,6 +57,10 @@ export class API {
     res.send(metrics)
   }
 
+  async updateVoltage(req, res) {
+    // this.metrics.batteryVoltage.set(voltage)
+  }
+
   //
   // Error handlers
   //

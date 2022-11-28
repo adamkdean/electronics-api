@@ -20,6 +20,4 @@ docker run \
   --env API_BEARER_TOKEN=$API_BEARER_TOKEN \
   --env METRICS_BEARER_TOKEN=$METRICS_BEARER_TOKEN \
   --env VIRTUAL_HOST=$DOMAIN \
-  --env LETSENCRYPT_HOST=$DOMAIN \
-  --env LETSENCRYPT_EMAIL="adamkdean@googlemail.com" \
   $SERVICE_NAME
