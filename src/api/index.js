@@ -19,6 +19,7 @@ export class API {
     this.app.disable('x-powered-by')
     this.app.use(this.parseBearerToken.bind(this))
     this.app.get('/metrics', this.getMetrics.bind(this))
+    this.app.post('/battery', this.updateBatteryVoltage.bind(this))
     this.app.use(this.notFound)
     this.app.use(this.internalServerError)
   }
@@ -57,8 +58,14 @@ export class API {
     res.send(metrics)
   }
 
-  async updateVoltage(req, res) {
-    // this.metrics.batteryVoltage.set(voltage)
+  async updateBatteryVoltage(req, res) {
+    if (!req.token || req.token !== this.config.tokens.apiBearerToken) {
+      return this.forbidden(req, res)
+    }
+
+    const { voltage } = req.body
+    this.log.info(`[batteryVoltage] updating battery voltage to ${voltage}v`)
+    this.metrics.batteryVoltage.set(voltage)
   }
 
   //
