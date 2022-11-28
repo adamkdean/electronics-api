@@ -76,7 +76,7 @@ export class API {
     this.log.info(`[batteryVoltage] updating battery voltage to ${voltage}v`)
     this.metrics.batteryVoltage.set(voltage)
 
-    return res.end(200)
+    return res.status(200).end()
   }
 
   //
