@@ -3,7 +3,6 @@
 // license that can be found in the LICENSE file.
 
 import Express from 'express'
-import Package from '../../package.json'
 import http from 'http'
 
 export class API {
@@ -52,7 +51,7 @@ export class API {
   async getIndex(req, res) {
     return res.json({
       name: 'electronics-api',
-      version: Package.version
+      version: process.env.npm_package_version
     })
   }
 
