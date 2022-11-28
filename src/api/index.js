@@ -3,6 +3,7 @@
 // license that can be found in the LICENSE file.
 
 import Express from 'express'
+import Package from '../package.json'
 import http from 'http'
 
 export class API {
@@ -48,6 +49,13 @@ export class API {
   //
   // Routes
   //
+  async getIndex(req, res) {
+    return res.json({
+      name: 'electronics-api',
+      version: Package.version
+    })
+  }
+
   async getMetrics(req, res) {
     if (!req.token || req.token !== this.config.tokens.metricsBearerToken) {
       return this.forbidden(req, res)
