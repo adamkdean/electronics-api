@@ -18,6 +18,7 @@ export class API {
   configure() {
     this.app.disable('x-powered-by')
     this.app.use(this.parseBearerToken.bind(this))
+    this.app.get('/', this.getIndex.bind(this))
     this.app.get('/metrics', this.getMetrics.bind(this))
     this.app.post('/battery', this.updateBatteryVoltage.bind(this))
     this.app.use(this.notFound)
