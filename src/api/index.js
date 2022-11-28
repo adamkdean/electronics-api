@@ -3,7 +3,7 @@
 // license that can be found in the LICENSE file.
 
 import Express from 'express'
-import Package from '../package.json'
+import Package from '../../package.json'
 import http from 'http'
 
 export class API {
